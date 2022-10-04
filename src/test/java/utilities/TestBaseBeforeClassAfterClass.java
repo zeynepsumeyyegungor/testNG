@@ -28,6 +28,6 @@ public abstract class TestBaseBeforeClassAfterClass {
     }
     @AfterClass
     public void tearDown() throws InterruptedException {
-       // driver.close();
+       driver.close();
     }
 }
