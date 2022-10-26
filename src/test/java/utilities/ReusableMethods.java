@@ -131,5 +131,17 @@ public class ReusableMethods {
             System.out.println(
                     "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
         }
+
+    }
+
+    public static void jsclick(WebElement webElement) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();", webElement);
+        try {
+            webElement.click();
+        } catch (Exception e) {
+            JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+            executor.executeScript("arguments[0].click();", webElement);
+        }
     }
 }
